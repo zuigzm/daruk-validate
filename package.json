@@ -1,0 +1,19 @@
+{
+  "name": "daruk-validate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "koa": "^2.13.1",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "koa-parameter": "^3.0.1",
+    "parameter": "^3.6.0"
+  }
+}
