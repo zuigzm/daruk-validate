@@ -20,7 +20,7 @@ export function validate(
       ctx: koa.Context,
       next: Function
     ) {
-      ctx.verifyParams(rules, params);
+      ctx.verifyParams(rules, ctx.body);
 
       await oldFunc.call(this, ...arguments);
       await next();
