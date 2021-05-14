@@ -42,6 +42,22 @@ import { validate } from "daruk-validate";
 
 Checkout [parameter](https://github.com/node-modules/parameter) to get all the rules.
 
+## [Daruk](https://github.com/darukjs/daruk) Middleware
+
+> Daruk Middleware [click](https://darukjs.com/tutorial/decorator.html#middleware-%E8%A3%85%E9%A5%B0%E5%99%A8)
+
+```js
+import { Daruk, defineMiddleware, MiddlewareClass } from "daruk";
+import { parameter } from "daruk-validate";
+
+@defineMiddleware("daruk-validate")
+class DarukValidate implements MiddlewareClass {
+  public initMiddleware(daruk: Daruk) {
+    parameter(daruk.app as any);
+  }
+}
+```
+
 ## Translate
 
 You can override the translate method of parameter to implement I18n, by passing a function like this :
@@ -64,8 +80,6 @@ class DarukValidate implements MiddlewareClass {
 ```
 
 ## [Example](examples/index.js)
-
-## [Daruk](https://github.com/darukjs/daruk)
 
 ### License
 
