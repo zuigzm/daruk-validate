@@ -65,6 +65,8 @@ class DarukValidate implements MiddlewareClass {
 
 ## [Example](examples/index.js)
 
+## [Daruk](https://github.com/darukjs/daruk)
+
 ### License
 
 MIT
