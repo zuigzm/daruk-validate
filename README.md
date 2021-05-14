@@ -1,6 +1,6 @@
 # daruk-validate
 
-> parameter validate middleware for daruk, powered by koa-parameter.
+> parameter validate middleware for [daruk](https://github.com/darukjs/daruk), powered by koa-parameter.
 
 ## Installation
 
