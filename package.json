@@ -1,20 +1,29 @@
 {
   "name": "daruk-validate",
   "version": "1.0.0",
-  "description": "",
+  "description": "parameter validate middleware for daruk",
   "main": "index.js",
   "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "zuigzm",
+  "license": "MIT",
   "devDependencies": {
     "daruk": "^2.3.6",
     "koa": "^2.13.1"
   },
   "dependencies": {
-    "koa-parameter": "^3.0.1",
-    "parameter": "^3.6.0"
-  }
+    "koa-parameter": "^3.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zuigzm/daruk-validate.git"
+  },
+  "homepage": "https://github.com/zuigzm/daruk-validate#readme",
+  "bugs": "https://github.com/zuigzm/daruk-validate/issues"
 }

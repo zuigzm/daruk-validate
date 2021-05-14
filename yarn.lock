@@ -906,11 +906,6 @@ parameter@^2.2.0:
   resolved "https://registry.yarnpkg.com/parameter/-/parameter-2.4.0.tgz#85ea52e9dfee80265a07b086edbc352e68b39733"
   integrity sha512-PxENY9SO4qYIBRUXJ7dM/nWxbzC4PIDws1U7IQsZ0tlZvrcuAKxJQZV6Jf0Lmpl1mSYaEPcvhMOL2UHtLU2Xtw==
 
-parameter@^3.6.0:
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/parameter/-/parameter-3.6.0.tgz#bcf81327e98e433c72c134830ec84d15e81b963d"
-  integrity sha512-KtXBPFX92SNh6E3dTRJ8fT0Dw23XPyAmp3YGZwhupRUsxl0EbtV1StuWSt76MsQdh6r4azZogsc+QTxYLBDziQ==
-
 parseurl@^1.3.2:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/parseurl/-/parseurl-1.3.3.tgz#9da19e7bee8d12dff0513ed5b76957793bc2e8d4"
