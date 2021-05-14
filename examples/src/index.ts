@@ -11,7 +11,8 @@ import { validate } from "../../";
     @get("/")
     @validate({
       name: {
-        require: false,
+        type: 'string',
+        required: true,
       },
     })
     public async index(ctx: any) {

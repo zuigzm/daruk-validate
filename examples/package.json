@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=dev ts-node --project tsconfig.json --files src/index.ts",
+    "dev": "cross-env NODE_ENV=dev ts-node --project tsconfig.json --files src/index.ts",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,5 +14,8 @@
     "daruk": "2.2.4",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.2"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }

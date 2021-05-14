@@ -1,9 +1,9 @@
 import { Daruk, defineMiddleware, MiddlewareClass } from "daruk";
-import { parameter } from "../../index";
+import { parameter } from "../../";
 
-@defineMiddleware("koa-ejs")
+@defineMiddleware("daruk-validate")
 class DarukValidate implements MiddlewareClass {
   public initMiddleware(daruk: Daruk) {
-    parameter(daruk.app);
+    parameter(daruk.app as any);
   }
 }
