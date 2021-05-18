@@ -7,7 +7,7 @@ interface RulesType {
     type: string;
     required?: boolean;
     convertType?: 'int' | 'number'|'string'| 'boolean';
-    default?: 'string'
+    default?: any;  // The default value of property, once the property is allowed non-required and missed, parameter will use this as the default value. This may change the original input params
     widelyUndefined?: any; // override options.widelyUndefined
   };
 }
