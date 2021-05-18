@@ -11,12 +11,12 @@ import { validate } from "../../";
     @get("/")
     @validate({
       name: {
-        type: 'string',
-        required: true,
+        type: "string?",
+        default: 1000,
       },
     })
     public async index(ctx: any) {
-      ctx.body = "hello world";
+      ctx.body = `hello world ${ctx.request.query.name}`;
     }
   }
 

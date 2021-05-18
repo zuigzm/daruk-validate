@@ -53,7 +53,9 @@ import { parameter } from "daruk-validate";
 @defineMiddleware("daruk-validate")
 class DarukValidate implements MiddlewareClass {
   public initMiddleware(daruk: Daruk) {
-    parameter(daruk.app as any);
+    // If there is no global error intercept
+    // You can use this middleware to catch errors
+    return parameter(daruk.app as any);
   }
 }
 ```
@@ -79,8 +81,23 @@ class DarukValidate implements MiddlewareClass {
 }
 ```
 
+## Error
+
+```js
+import { Daruk, defineMiddleware, MiddlewareClass } from "daruk";
+import { errorVerify } from "daruk-validate";
+
+@defineMiddleware("error")
+class DarukValidate implements MiddlewareClass {
+  public initMiddleware(daruk: Daruk) {
+    // Create a global capture middleware
+    return errorVerify;
+  }
+}
+
 ## [Example](examples/index.js)
 
 ### License
 
 MIT
+```
