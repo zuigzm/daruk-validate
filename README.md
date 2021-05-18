@@ -94,10 +94,14 @@ class DarukValidate implements MiddlewareClass {
     return errorVerify;
   }
 }
+```
 
 ## [Example](examples/index.js)
 
 ### License
 
 MIT
+
+```
+
 ```
