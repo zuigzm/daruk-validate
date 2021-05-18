@@ -2,8 +2,6 @@ const Parameter = require("parameter");
 const errorVerify = require("./error");
 
 module.exports = function (app, translate) {
-  console.log("app", app);
-
   let parameter;
 
   if (typeof translate === "function") {

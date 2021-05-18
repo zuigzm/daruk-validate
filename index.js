@@ -7,7 +7,6 @@ function validate(rules, data) {
 
     descriptor.value = async function validateWrap(ctx, next) {
       // 从获取 query body
-      console.log("rules, data", rules, data);
       ctx.verifyParams(rules, data);
 
       await oldFunc.call(this, ...arguments);
