@@ -13,17 +13,33 @@ module.exports = function (app, translate) {
   }
 
   app.context.verifyParams = function (rules, params) {
+    let value;
+    let thisParams = this.params;
     if (!rules) {
       return;
     }
 
     if (!params) {
-      params = ["GET", "HEAD"].includes(this.method.toUpperCase())
+      value = ["GET", "HEAD"].includes(this.method.toUpperCase())
         ? this.request.query
         : this.request.body;
+
+      // copy
+      params = Object.assign({}, value, thisParams);
     }
 
     const errors = parameter.validate(rules, params);
+
+    // Ensure that default can be used normally
+    for(let key in params) {
+      if(key in thisParams) {
+        thisParams[key] = params[key]
+      } else {
+        value[key] = params[key]
+      }
+    }
+
+    console.log('value, thisParams', params, this.request.query, this.params)
 
     if (!errors) {
       return;
