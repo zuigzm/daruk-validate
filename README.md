@@ -55,7 +55,7 @@ class DarukValidate implements MiddlewareClass {
   public initMiddleware(daruk: Daruk) {
     // If there is no global error intercept
     // You can use this middleware to catch errors
-    return parameter(daruk.app as any);
+    return parameter(daruk.app);
   }
 }
 ```
@@ -71,7 +71,7 @@ import { parameter } from "daruk-validate";
 @defineMiddleware("daruk-validate")
 class DarukValidate implements MiddlewareClass {
   public initMiddleware(daruk: Daruk) {
-    parameter(daruk.app as any, function() {
+    parameter(daruk.app, function() {
       // Same example with node-parameter
       var args = Array.prototype.slice.call(arguments);
       // Assume there have I18n.t method for convert language.
