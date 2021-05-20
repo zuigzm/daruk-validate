@@ -2,15 +2,7 @@ const Parameter = require("parameter");
 const errorVerify = require("./error");
 
 module.exports = function (app, translate) {
-  let parameter;
-
-  if (typeof translate === "function") {
-    parameter = new Parameter({
-      translate,
-    });
-  } else {
-    parameter = new Parameter();
-  }
+  const parameter = new Parameter(translate);
 
   app.context.verifyParams = function (rules, params) {
     let value;
@@ -39,8 +31,6 @@ module.exports = function (app, translate) {
       }
     }
 
-    console.log('value, thisParams', params, this.request.query, this.params)
-
     if (!errors) {
       return;
     }
@@ -53,3 +43,31 @@ module.exports = function (app, translate) {
 
   return errorVerify;
 };
+
+/**
+ * format a rule
+ * - resolve abbr
+ * - resolve `?`
+ *
+ * @param {Mixed} rule
+ * @return {Object}
+ * @api private
+ */
+
+ function formatRule(rule) {
+  rule = rule || {};
+  if (typeof rule === 'string') {
+    rule = { type: rule };
+  } else if (Array.isArray(rule)) {
+    rule = { type: 'enum', values: rule };
+  } else if (rule instanceof RegExp) {
+    rule = { type: 'string', format: rule };
+  }
+
+  if (rule.type && rule.type[rule.type.length - 1] === '?') {
+    rule.type = rule.type.slice(0, -1);
+    rule.required = false;
+  }
+
+  return rule;
+}
