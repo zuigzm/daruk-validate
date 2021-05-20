@@ -1,6 +1,6 @@
 {
   "name": "daruk-validate",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "parameter validate middleware for daruk",
   "main": "index.js",
   "types": "index.d.ts",
