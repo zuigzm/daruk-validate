@@ -1,15 +1,19 @@
 import Koa = require("koa");
-import * as Parameter from "parameter";
 
-export { Parameter };
+export type ValidateOptionsType = {
+  translate?: Function;
+  validateRoot?: boolean;
+  convert?: boolean;
+  widelyUndefined?: any;
+};
 
-export function parameter(app: Koa, options?: Parameter.ParameterOptions): void;
+export function parameter(app: Koa, options?: ValidateOptionsType): void;
 
 interface RulesType {
   [key: string]:
-    | Parameter.ParameterRuleAbbr
+    | string
     | {
-        type: Parameter.ParameterRuleAbbr;
+        type: string;
         required?: boolean;
         convertType?:
           | "int"
