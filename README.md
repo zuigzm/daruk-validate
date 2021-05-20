@@ -101,7 +101,3 @@ class DarukValidate implements MiddlewareClass {
 ### License
 
 MIT
-
-```
-
-```
