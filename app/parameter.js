@@ -13,16 +13,15 @@ module.exports = function (app, options) {
 
     if (!params) {
       value = ["GET", "HEAD"].includes(this.method.toUpperCase())
-        ? this.request.query
+        ? this.request.query // query string => boolean
         : this.request.body;
 
       // copy
       params = Object.assign({}, value, thisParams);
     }
 
-    const errors = parameter.validate(rules, params);
+    const errors = parameter.validate(toBoolean(rules), params);
 
-    // Ensure that default can be used normally
     for (let key in params) {
       if (key in thisParams) {
         thisParams[key] = params[key];
@@ -44,30 +43,20 @@ module.exports = function (app, options) {
   return errorVerify;
 };
 
-/**
- * format a rule
- * - resolve abbr
- * - resolve `?`
- *
- * @param {Mixed} rule
- * @return {Object}
- * @api private
- */
-
-function formatRule(rule) {
-  rule = rule || {};
-  if (typeof rule === "string") {
-    rule = { type: rule };
-  } else if (Array.isArray(rule)) {
-    rule = { type: "enum", values: rule };
-  } else if (rule instanceof RegExp) {
-    rule = { type: "string", format: rule };
+// query toBoolean
+function toBoolean(rules) {
+  for (let key in rules) {
+    if (/bool/.test(rules[key]) || /bool/.test(rules[key].type)) {
+      rules[key] = {
+        convertType: (value) => (value === "false" ? false : true),
+        ...(typeof rules[key] === "object"
+          ? rules[key]
+          : {
+              type: rules[key],
+            }),
+      };
+    }
   }
 
-  if (rule.type && rule.type[rule.type.length - 1] === "?") {
-    rule.type = rule.type.slice(0, -1);
-    rule.required = false;
-  }
-
-  return rule;
+  return rules;
 }

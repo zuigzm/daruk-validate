@@ -15,10 +15,17 @@ import { validate } from "../../";
         default: 1000,
       },
       no: "date?",
-      name: "int",
+      isshow: {
+        type: "boolean?",
+        default: true,
+      },
+      name: "bool",
     })
     public async index(ctx: any) {
-      ctx.body = `hello world ${ctx.request.query.ok}`;
+      ctx.body = {
+        ...ctx.request.query,
+        ...ctx.params,
+      };
     }
   }
 
