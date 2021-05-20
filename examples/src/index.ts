@@ -8,15 +8,17 @@ import { validate } from "../../";
 
   @controller()
   class Index {
-    @get("/")
+    @get("/:name")
     @validate({
-      name: {
-        type: "string?",
+      ok: {
+        type: "int?",
         default: 1000,
       },
+      no: 'date?',
+      name: 'int'
     })
     public async index(ctx: any) {
-      ctx.body = `hello world ${ctx.request.query.name}`;
+      ctx.body = `hello world ${ctx.request.query.ok}`;
     }
   }
 
