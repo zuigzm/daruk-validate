@@ -28,7 +28,7 @@ interface RulesType {
         allowEmpty?: boolean; //allow empty string, default to false. If rule.required set to false, allowEmpty will be set to true by default.
         format?: RegExp; // A RegExp to check string's format.
         trim?: boolean; // Trim the string before check, default is false
-        compare?: boolean;
+        compare?: string;
       };
 }
 
