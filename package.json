@@ -19,7 +19,7 @@
     "koa": "^2.13.1"
   },
   "dependencies": {
-    "parameter": "^3.6.0"
+    "parameter": "^3.7.0"
   },
   "repository": {
     "type": "git",

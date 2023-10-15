@@ -14,7 +14,7 @@ interface RulesType {
     | string
     | {
         type: string;
-        required?: boolean;
+        required?: boolean | string;
         convertType?:
           | "int"
           | "number"
@@ -29,6 +29,13 @@ interface RulesType {
         format?: RegExp; // A RegExp to check string's format.
         trim?: boolean; // Trim the string before check, default is false
         compare?: string;
+        message?:
+          | string
+          | {
+              required?: string; // An error message is required
+              max?: string; // An error message is max
+              min?: string; // An error message is min
+            }; // The default message contains error messages for max and min
       };
 }
 

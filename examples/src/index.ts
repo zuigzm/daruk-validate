@@ -14,8 +14,20 @@ import { validate } from "../../";
         type: "int?",
         default: 1000,
       },
-      no: "date?",
-      name: "int",
+      date: {
+        type: "date",
+        message: {
+          required: "时间不能为空",
+        },
+      },
+      name: {
+        type: "int",
+        max: 50,
+        message: {
+          max: "请不要输入大于50的值",
+          required: "请输入正确的name格式",
+        },
+      },
     })
     public async index(ctx: any) {
       ctx.body = `hello world ${ctx.request.query.ok}`;
