@@ -9,6 +9,9 @@
     "index.d.ts",
     "app"
   ],
+  "engines": {
+    "node": ">=12.13.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
