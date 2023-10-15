@@ -7,6 +7,7 @@ module.exports = function (app, options) {
   app.context.verifyParams = function (rules, params) {
     let value;
     let thisParams = this.params;
+
     if (!rules) {
       return;
     }
@@ -19,9 +20,7 @@ module.exports = function (app, options) {
       // copy
       params = Object.assign({}, value, thisParams);
     }
-
     const errors = parameter.validate(rules, params);
-
     if (!errors) {
       return;
     }
